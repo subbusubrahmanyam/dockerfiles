@@ -1,0 +1,15 @@
+server {
+    listen         80 default_server;
+    listen         [::]:80 default_server;
+    server_name    testbim.bimsym.com. www.testbim.bimsym.com;
+#    root           /var/www/bimsys.com;
+    index          index.php;
+#    try_files $uri /index.html;
+    location / {
+        proxy_pass http://10.0.0.103:81;
+    }
+    location /pma {
+    client_max_body_size 200M;
+       proxy_pass http://10.0.0.103:9080;
+    }
+}
