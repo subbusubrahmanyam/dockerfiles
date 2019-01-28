@@ -1,0 +1,20 @@
+docker-compose.yml
+
+version: "3.3"
+services:
+   pma:
+     build: subbu.phpmyadmin
+     volumes:
+     - /root/phpmyadmin/pma/:/var/www/html/pma:
+
+     - /root/phpmyadmin/php.ini:/etc/php.ini
+     ports:
+       - 9080:80
+       
+       
+
+
+
+
+docker-compose build command
+docker-compose up -d
