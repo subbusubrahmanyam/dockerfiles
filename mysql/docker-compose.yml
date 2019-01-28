@@ -1,0 +1,26 @@
+mysql installation 
+docker-compose.yml
+
+
+
+version: "3.3"
+services:
+   db:
+#Ensure you have local mysql user and group with id 27
+##useradd -u 27 -M -r mysql
+     image: mysql:5.5.58
+     environment:
+      MYSQL_DATABASE: sample
+      MYSQL_USER: appuser
+      MYSQL_ROOT_PASSWORD: default123
+      MYSQL_PASSWORD: default123
+     volumes:
+     - /root/proj1.mysql/db-data:/var/lib/mysql/data
+     ports:
+       - 3306:3306
+       
+       
+       
+       
+build this file command 
+docker-compose up -d
