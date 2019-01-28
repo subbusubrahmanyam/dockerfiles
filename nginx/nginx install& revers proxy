@@ -1,0 +1,18 @@
+FROM centos:7
+# Base Image
+
+MAINTAINER Developer
+# Author of the file
+
+RUN yum -y install epel-release && yum -y install nginx
+# Installing Required Packages
+
+COPY nginx.conf /etc/nginx/
+COPY sites/*.conf /etc/nginx/conf.d/
+
+CMD ["nginx", "-g", "daemon off;"]
+# Start ngix daemon
+
+EXPOSE 80
+# Open the port
+
